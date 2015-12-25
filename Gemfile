@@ -21,7 +21,7 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 gem 'sass', '3.2.19' 
-gem 'bower-rails'
+gem'bower-rails'
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem "factory_girl_rails", "~> 4.0"
@@ -30,11 +30,15 @@ group :test, :development do
   gem "selenium-webdriver"
 end
 
-gem "foreman"
+gem 'sprockets', '2.12.3'
+
+
+gem 'foreman'
+gem 'angular-rails-templates'
 group :production, :staging do
-  gem "rails_12factor"
-  gem "rails_stdout_logging"
-  gem "rails_serve_static_assets"
+  gem 'rails_12factor'
+  gem 'rails_stdout_logging'
+  gem 'rails_serve_static_assets'
 end
 
 # bundle exec rake doc:rails generates the API under doc/api.
