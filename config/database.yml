@@ -58,6 +58,8 @@ development:
 test:
   <<: *default
   database: pms_test
+  username: <%= ENV['PMS_DATABASE_USERNAME'] %>
+  password: <%= ENV['PMS_DATABASE_PASSWORD'] %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
