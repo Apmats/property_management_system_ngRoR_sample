@@ -41,6 +41,9 @@ group :production, :staging do
   gem 'rails_serve_static_assets'
 end
 
+
+gem 'teaspoon-jasmine'
+gem 'phantomjs'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 

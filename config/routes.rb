@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   root 'home#index'
   
-  resources :properties, only: [:index]
+  resources :properties, only: [:index, :show, :create, :update, :destroy]
+
+  # get '/properties/:propertyId' => 'properties#show'
+
   
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

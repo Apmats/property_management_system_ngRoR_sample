@@ -1,0 +1,91 @@
+<header class="row">
+  <h1 class="text-center col-md-4 col-md-offset-4">View and edit property</h1>
+</header>
+<form class="form-horizontal" role="form" class="edit-user">
+  <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label 
+      for="name" 
+      class="col-md-2 control-label col-md-offset-2">
+      Name
+    </label>
+    <div class="col-md-5">
+      <input type="text" name="name" class="form-control" placeholder="e.g. Spatious Apartment" ng-model="property.name">
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label 
+      for="description" 
+      class="col-md-2 control-label col-md-offset-2">
+      Description
+    </label>
+    <div class="col-md-5">
+      <textarea name="description" class="form-control" ng-model='property.description' placeholder="New apartment, located at...">
+      </textarea>
+    </div>
+  </div>
+  
+    <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label 
+      for="address" 
+      class="col-md-2 control-label col-md-offset-2">
+      Address
+    </label>
+    <div class="col-md-5">
+      <textarea name="address" class="form-control" ng-model='property.address' placeholder="25 Dam Str.">
+      </textarea>
+    </div>
+  </div>
+  
+    <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label 
+      for="property_type" 
+      class="col-md-2 control-label col-md-offset-2">
+      Type
+    </label>
+    <div class="col-md-5">
+      <select name="property_type" class="form-control" ng-model='property.property_type'>
+       <option value="" selected>Pick one</option>
+      <option value="City">City</option>
+      <option value="Vacation">Vacation</option>
+      </select>
+    </div>
+  </div>
+  
+    <div class="form-group" ng-class="{'has-warning has-feedback':errors.name}">
+    <label 
+      for="Floor" 
+      class="col-md-2 control-label col-md-offset-2">
+      Floor
+    </label>
+    <div class="col-md-1">
+        <input name="floor" class="form-control form-control-sm" ng-model='property.floor' type="number" min="0" max="100" integer placeholder="5">
+        <span ng-show="form.floor.$error.integer">The value is not a valid integer.</span>
+        <span ng-show="form.floor.$error.min || form.floor.$error.max">The value should be between 0 and 100.</span>
+    </div>
+  </div>
+  
+<!-- 
+  <div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  Enter a valid email address
+ </div>-->
+  
+  
+  <div class="form-group">
+    <div class="col-md-2 text-right col-md-offset-2">
+      <button class="btn btn-default" ng-click="back()">&larr; Back</button>
+    </div>
+    <div class="col-md-2 text-right col-md-offset-3">
+      <button class="btn btn-primary" ng-click="save()"> Save </button>
+      <button class="btn btn-info" ng-click="cancel()"> Cancel</button>
+      <button class="btn btn-danger" ng-if="property.id" ng-click="delete()"> Delete</button>
+    </div>
+  </div>
+</section>
+
+<aside class="flash row">
+  <article flash-alert duration="0" active-class="alert" class="col-md-6 col-md-offset-3">
+    {{flash.message}}
+  </article>
+</aside>

@@ -4,7 +4,7 @@ class CreateProperties < ActiveRecord::Migration
       t.string :name, limit: 60
       t.string :description, limit: 200
       t.string :address
-      t.string :type
+      t.string :property_type
       t.integer :floor
 
       t.timestamps null: false

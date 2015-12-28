@@ -17,13 +17,13 @@ ActiveRecord::Schema.define(version: 20151226012359) do
   enable_extension "plpgsql"
 
   create_table "properties", force: :cascade do |t|
-    t.string   "name",        limit: 60
-    t.string   "description", limit: 200
+    t.string   "name",          limit: 60
+    t.string   "description",   limit: 200
     t.string   "address"
-    t.string   "type"
+    t.string   "property_type"
     t.integer  "floor"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end

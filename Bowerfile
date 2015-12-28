@@ -2,4 +2,7 @@ asset 'angular'
 asset 'bootstrap-sass-official'
 asset 'angular-route'
 asset 'angular-ui-router'
+asset 'angular-resource'
+asset 'angular-mocks'
+asset 'angular-flash'
 # vim: ft=ruby

@@ -2,43 +2,32 @@ pms = angular.module('pms',[
   'templates',
   'ngRoute',
   'controllers',
-  'ui.router'
+  'ngResource',
+  'ui.router',
+  'angular-flash.service',
+  'angular-flash.flash-alert-directive'
 ])
 
-pms.config([ '$routeProvider',
-  ($routeProvider)->
+pms.config([ '$routeProvider', 'flashProvider',
+  ($routeProvider,flashProvider)->
+    flashProvider.errorClassnames.push("alert-danger")
+    flashProvider.warnClassnames.push("alert-warning")
+    flashProvider.infoClassnames.push("alert-info")
+    flashProvider.successClassnames.push("alert-success")
     $routeProvider
       .when('/',
-        templateUrl: "index.html"
-        controller: 'PropertiesController'
+         templateUrl: "index.html"
+         controller: 'PropertiesController'
+      ).when('/properties/new',
+        templateUrl: "form.html"
+        controller: 'PropertyController'
+      ).when('/properties/:propertyId',
+         templateUrl: "show.html"
+         controller: 'PropertyController'
+      ).when('/properties/:propertyId/edit',
+        templateUrl: "form.html"
+        controller: 'PropertyController'
       )
 ])
 
-properties = [
-  {
-    id: 1
-    name: 'Baked Potato w/ Cheese'
-  },
-  {
-    id: 2
-    name: 'Garlic Mashed Potatoes',
-  },
-  {
-    id: 3
-    name: 'Potatoes Au Gratin',
-  },
-  {
-    id: 4
-    name: 'Baked Brussel Sprouts',
-  },
-]
 controllers = angular.module('controllers',[])
-controllers.controller("PropertiesController", [ '$scope', '$routeParams', '$location',
-  ($scope,$routeParams,$location)->
-    $scope.search = (keywords)->  $location.path("/").search('keywords',keywords)
-    if $routeParams.keywords
-      keywords = $routeParams.keywords.toLowerCase()
-      $scope.properties = properties.filter (property)-> property.name.toLowerCase().indexOf(keywords) != -1
-    else
-      $scope.properties = []
-])

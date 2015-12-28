@@ -1,34 +1,37 @@
 <header class="row">
-  <h1 class="text-center col-md-6 col-md-offset-3">Find Recipes</h1>
+  <h1 class="text-center col-md-4 col-md-offset-4">Find Properties</h1>
 </header>
 <section class="row">
    <form>
-     <div class="form-group col-md-6 col-md-offset-3">
+     <div class="form-group col-md-4 col-md-offset-4">
        <label for="keywords" class="sr-only">Keywords</label>
 
-      <input ng-model="keywords" name="keywords" type="text" autofocus class="form-control" placeholder="Recipe name, e.g. Baked Potato">
+      <input ng-model="keywords" name="keywords" type="text" autofocus class="form-control" placeholder="Property name here">
      </div>
      <div class="form-group col-md-6 col-md-offset-3 text-center">
 
-      <button ng-click="search(keywords)" class="btn btn-primary btn-lg">Search</button>
+      <button ng-click="search(keywords)" class="btn btn-default btn-lg">Search</button>
+      <button ng-click="showAll()" class="btn btn-primary btn-lg">Show All</button>
+      <button ng-click="newProperty()" class="btn btn-info btn-lg">Add Property</button>
+
      </div>
    </form>
 </section>
 <hr>
 <section class="row" ng-if="properties">
-   <h1 class="text-center h2">Results</h1>
+   <h1 class="text-center h2">Properties:</h1>
   <ul class="list-unstyled">
     <li ng-repeat="property in properties">
-      <section class="well col-md-6 col-md-offset-3">
-        <h1 class="h3 col-md-6 text-right" style="margin-top: 0"><a href="#">{{property.name}}</a></h1>
-        <div class="col-md-6">
-          <button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger">Delete</button>
+      <section class="well col-md-8 col-md-offset-2">
+        <!--<h1 class="h3 col-md-6 text-center col-md-offset-3" style="margin-top: 0"><a href ng-click="view(property.id)" >{{property.name}}</a></h1>-->
+        <h1 class="h3 col-md-6 text-center col-md-offset-3" style="margin-top: 0">{{property.name}}</h1>
+        <div class="col-md-6 text-center col-md-offset-3">
+          <button ng-click="edit(property.id)" class="btn btn-info">View/Edit</button>
+          <button ng-click="delete(property)" class="btn btn-danger">Delete</button>
         </div>
       </section>
     </li>
+      <h1 class="h3 col-md-12 text-center" ng-hide="properties.length" style="margin-top: 0">None found</h1>
   </ul>
  </section>
- 
- 
- 
+<
