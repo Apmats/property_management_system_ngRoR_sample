@@ -8,6 +8,7 @@ controllers.controller("PropertyController", [ '$scope', '$routeParams', '$resou
         'create': {method:'POST'}
       }
     )
+    
     if $routeParams.propertyId
       Property.get({propertyId: $routeParams.propertyId},
         ( (property)-> $scope.property = property ),
@@ -19,8 +20,7 @@ controllers.controller("PropertyController", [ '$scope', '$routeParams', '$resou
     else
       $scope.property = {}
       
-    $scope.back = ->
-      $location.path("/")
+    $scope.back = -> $location.path("/")
       
     $scope.edit   = -> $location.path("/properties/#{$scope.property.id}/edit")
     
