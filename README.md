@@ -7,7 +7,8 @@ This project was generated with Rails, heavily inspired by a couple of the most 
 The app covers some basic crud functionality via an Angular frontend communicating with a Ruby on Rails backend. 
 You can see a demo here: https://pms-apmats.herokuapp.com/
 
-Instead of using the web app, you can instead consume the API in json format by doing a GET request for https://pms-apmats.herokuapp.com//properties/1?format=json or generally any other valid property ID.
+Instead of using the web app, you can instead consume the API in json format by doing a GET request for https://pms-apmats.herokuapp.com/properties/1?format=json or generally any other valid property ID.
+You can get all the data for all the properties at once by doing a GET for https://pms-apmats.herokuapp.com/properties?format=json which would probably be a bit unwieldy if the database grew large enough.
 
 To run this yourself:
 
