@@ -34,14 +34,14 @@ controllers.controller("PropertyController", [ '$scope', '$routeParams', '$resou
       onError = (_httpResponse)-> flash.error = "Something went wrong"
       if $scope.property.id
         $scope.property.$save(
-          ( ()-> $location.path("/properties/#{$scope.property.id}") ),
-          onError)
-      else
-        Property.create($scope.property,
-          ( (newProperty)-> $location.path("/properties/#{newProperty.id}") ),
+          ( ()-> $location.path("/properties/#{$scope.property.id}/edit") ),
           onError
         )
-
+      else
+        Property.create($scope.property,
+          ( (newProperty)-> $location.path("/properties/#{newProperty.id}/edit") ),
+          onError
+        )
     $scope.delete = () ->
       $scope.property.$delete()
       $scope.back()
