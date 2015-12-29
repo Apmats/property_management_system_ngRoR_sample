@@ -14,8 +14,9 @@ To run this yourself:
 
 1. Get ruby and postgresql installed
 2. Set up the required ENV variables in the database.yml configuration file
-3. Run the db migrate and seed rake tasts
-4. Run rail s and go to localhost:3000
+3. Do a bundle install to set up all the gems
+4. Run the db migrate and seed rake tasts
+5. Run rail s and go to localhost:3000
 
 
 ## Remaining work
